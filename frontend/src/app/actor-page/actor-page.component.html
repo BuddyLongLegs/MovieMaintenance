@@ -1,0 +1,18 @@
+<h3 class="text-center mb-4 text-3xl">Actors</h3>
+
+<div class="w-full overflow-x-scroll" *ngIf="data">
+    <table class="table-auto text-sm text-left text-gray-700 min-w-[750px] w-full">
+        <thead class="bg-gray-300">
+            <tr class="text-lg">
+                <th class="px-2 py-3 text-center border-r border-gray-400">Index</th>
+                <th class="px-2 py-3 text-center border-r border-gray-400">Name</th>
+                <th class="px-2 py-3 text-center border-r border-gray-400">Date of Birth</th>
+                <th class="px-2 py-3 text-center">Movie Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="bg-white border-b" *ngFor="let a of data; let i = index" [actor]="a" [index]="i+1"
+                app-actor-card></tr>
+        </tbody>
+    </table>
+</div>

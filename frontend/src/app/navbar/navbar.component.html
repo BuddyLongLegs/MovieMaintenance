@@ -1,0 +1,43 @@
+<!-- portal -->
+<div [ngClass]="menu ? 'absolute w-screen h-screen bg-black bg-opacity-60 z-10' : 'hidden'" (click)="toggleMenu()">
+</div>
+
+<!-- navbar -->
+<nav class="w-full bg-slate-900 flex justify-center">
+    <div class="p-4 flex justify-between sm:justify-start gap-8 align-middle w-full max-w-screen-2xl">
+        <a routerLink="/" class="my-auto">
+            <h1 class="text-white text-xl ">
+                Movie Maintenance
+            </h1>
+        </a>
+        <div class="gap-2 hidden sm:flex">
+            <button routerLink="/movie"
+                class="text-slate-300 px-4 pt-2 pb-1 rounded-md bg-slate-900 hover:bg-black hover:text-slate-400 transition"
+                routerLinkActive="text-slate-500 hover:bg-slate-900 hover:text-slate-500 cursor-default">Movies</button>
+            <button routerLink="/actor"
+                class="text-slate-300 px-4 pt-2 pb-1 rounded-md bg-slate-900 hover:bg-black hover:text-slate-400 transition"
+                routerLinkActive="text-slate-500 hover:bg-slate-900 hover:text-slate-500 cursor-default">Actors</button>
+        </div>
+        <div class="relative p-1 flex align-middle sm:hidden text-slate-200 z-10 bg-slate-900 rounded-lg">
+            <button (click)="toggleMenu()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16"
+                    [ngClass]="menu?'hidden':'block'">
+                    <path fill-rule="evenodd"
+                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-x-lg"
+                    viewBox="0 0 16 16" [ngClass]="menu?'block':'hidden'">
+                    <path
+                        d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                </svg>
+            </button>
+            <div class="menu flex-col absolute right-full top-full bg-slate-900 text-xl p-2"
+                [ngClass]="menu ? 'flex' : 'hidden'">
+                <a routerLink="/movie" class="text-slate-300 px-6 py-2 transition border-slate-900 border-b"
+                    routerLinkActive="text-slate-500 cursor-default">Movies</a>
+                <a routerLink="/actor" class="text-slate-300 px-6 py-2 transition"
+                    routerLinkActive="text-slate-500 cursor-default">Actors</a>
+            </div>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,41 @@
+<h3 class="text-center mb-4 text-3xl">Movies</h3>
+
+<div class="w-full overflow-x-scroll" *ngIf="data">
+    <table class="table-auto text-sm text-left text-gray-700 min-w-[750px] w-full">
+        <thead class="bg-gray-300">
+            <tr class="text-lg">
+                <th class="px-2 py-3 text-center border-r border-gray-400">Index</th>
+                <th class="px-2 py-3 flex border-r border-gray-400 hover:cursor-pointer" (click)="onChange('title')"
+                    [ngClass]="sortBy == 'title' ? 'bg-gray-500 text-gray-100' : ''">
+                    <span class="text-center flex-grow">Title</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="mt-2 mr-2"
+                        [ngClass]="sortBy == 'title' ? (order ? 'transform rotate-180': '') : 'hidden'"
+                        viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M7.022 1.566a1.13 1.13 0 0 1 1.96 0l6.857 11.667c.457.778-.092 1.767-.98 1.767H1.144c-.889 0-1.437-.99-.98-1.767L7.022 1.566z" />
+                    </svg>
+                </th>
+                <th class="px-2 py-3 text-center border-r border-gray-400">Description</th>
+                <th class="px-2 py-3 flex border-r border-gray-400 hover:cursor-pointer"
+                    (click)="onChange('releaseDate')"
+                    [ngClass]="sortBy == 'releaseDate' ? 'bg-gray-500 text-gray-100' : ''">
+                    <span class="text-center flex-grow">Release Date</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="mt-2 mr-2"
+                        [ngClass]="sortBy == 'releaseDate' ? (order ? 'transform rotate-180': '') : 'hidden'"
+                        viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M7.022 1.566a1.13 1.13 0 0 1 1.96 0l6.857 11.667c.457.778-.092 1.767-.98 1.767H1.144c-.889 0-1.437-.99-.98-1.767L7.022 1.566z" />
+                    </svg>
+                </th>
+                <th class="px-2 py-3 text-center border-r border-gray-400">Number of Actors</th>
+                <th class="px-2 py-3 text-center"></th>
+                <th class="px-2 py-3 text-center"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="bg-white border-b" *ngFor="let m of data; let i = index" [movie]="m" [index]="i+1" [like]="like"
+                [dislike]="dislike" app-movie-card>
+            </tr>
+        </tbody>
+    </table>
+</div>
